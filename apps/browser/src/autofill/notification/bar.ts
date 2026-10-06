@@ -1,6 +1,6 @@
 import { render } from "lit";
 
-import { Theme, ThemeTypes } from "@bitwarden/common/platform/enums";
+import { Theme, ThemeTypes, isDarkTheme } from "@bitwarden/common/platform/enums";
 import { CipherView } from "@bitwarden/common/vault/models/view/cipher.view";
 import type { FolderView } from "@bitwarden/common/vault/models/view/folder.view";
 
@@ -466,7 +466,7 @@ function getResolvedTheme(theme: Theme) {
   const themeType = getTheme(globalThis, theme);
 
   // There are other possible passed theme values, but for now, resolve to dark or light
-  const resolvedTheme: Theme = themeType === ThemeTypes.Dark ? ThemeTypes.Dark : ThemeTypes.Light;
+  const resolvedTheme: Theme = isDarkTheme(themeType) ? ThemeTypes.Dark : ThemeTypes.Light;
   return resolvedTheme;
 }
 

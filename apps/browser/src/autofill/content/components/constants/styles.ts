@@ -130,6 +130,7 @@ export const themes = {
 
   // For compatibility
   system: lightTheme,
+  black: darkTheme,
 };
 
 export const spacing = {

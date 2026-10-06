@@ -323,6 +323,31 @@ describe("AutofillInlineMenuIframeService", () => {
             },
           );
         });
+
+        it("renders the `black` theme as the `dark` theme", () => {
+          const message = {
+            command: "initAutofillInlineMenuList",
+            theme: ThemeTypes.Black,
+          };
+
+          sendPortMessage(portSpy, message);
+
+          expect(updateElementStylesSpy).toHaveBeenCalledWith(
+            autofillInlineMenuIframeService["iframe"],
+            {
+              borderColor: "#4c525f",
+            },
+          );
+          expect(
+            autofillInlineMenuIframeService["iframe"].contentWindow?.postMessage,
+          ).toHaveBeenCalledWith(
+            {
+              command: "initAutofillInlineMenuList",
+              theme: ThemeTypes.Dark,
+            },
+            autofillInlineMenuIframeService["extensionOrigin"],
+          );
+        });
       });
 
       describe("updating the iframe's position", () => {

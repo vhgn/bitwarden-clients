@@ -59,8 +59,13 @@ export class AngularThemingService implements AbstractThemingService {
       document.documentElement.classList.remove(
         "theme_" + ThemeTypes.Light,
         "theme_" + ThemeTypes.Dark,
+        "theme_" + ThemeTypes.Black,
       );
       document.documentElement.classList.add("theme_" + theme);
+      // The black theme builds on top of the dark theme
+      if (theme === ThemeTypes.Black) {
+        document.documentElement.classList.add("theme_" + ThemeTypes.Dark);
+      }
     });
   }
 }

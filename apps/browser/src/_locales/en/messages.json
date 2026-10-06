@@ -1525,6 +1525,10 @@
     "message": "Dark",
     "description": "Dark color"
   },
+  "black": {
+    "message": "Black",
+    "description": "Pure black, minimal color theme"
+  },
   "light": {
     "message": "Light",
     "description": "Light color"

@@ -16,6 +16,41 @@ This repository houses all Bitwarden client applications except the mobile appli
 
 Please refer to the [Clients section](https://contributing.bitwarden.com/getting-started/clients/) of the [Contributing Documentation](https://contributing.bitwarden.com/) for build instructions, recommended tooling, code style tips, and lots of other great information to get you started.
 
+## Download the browser extension (Black theme build)
+
+This fork adds a minimal, pure-black **Black** theme to the browser extension. To try it before it is in a store release:
+
+**Option 1 — download a CI build**
+
+1. Open the [Build Browser workflow runs](https://github.com/vhgn/bitwarden-clients/actions/workflows/build-browser.yml) and pick the latest successful run for your branch or pull request.
+2. Under **Artifacts**, download the build for your browser:
+   - Chrome / Brave / Arc: `dist-chrome-MV3-<build>.zip`
+   - Edge: `dist-edge-MV3-<build>.zip`
+   - Firefox: `dist-firefox-<build>.zip`
+   - Opera: `dist-opera-MV3-<build>.zip`
+3. Unzip it (GitHub wraps the archive in a second zip, so you may need to unzip twice).
+
+**Option 2 — build it yourself**
+
+```bash
+npm ci
+cd apps/browser
+npm run build:chrome   # or build:firefox, build:edge, build:opera
+```
+
+The unpacked extension is written to `apps/browser/build`.
+
+**Load the extension**
+
+- **Chrome / Edge / Brave / Opera:** go to `chrome://extensions`, turn on **Developer mode**, click **Load unpacked** and select the unzipped folder (or `apps/browser/build`).
+- **Firefox:** go to `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on…** and select the `manifest.json` in the folder.
+
+**Turn on the Black theme:** open the extension, go to **Settings → Appearance → Theme** and choose **Black**.
+
+<p align="center">
+  <img src="apps/browser/docs/black-theme/vault-black.png" alt="Bitwarden browser extension in the Black theme" width="320" />
+</p>
+
 ## Related projects:
 
 - [bitwarden/server](https://github.com/bitwarden/server): The core infrastructure backend (API, database, Docker, etc).

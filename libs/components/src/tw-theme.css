@@ -794,6 +794,159 @@
 }
 
 /**========================================
+ * BLACK THEME
+ * ========================================
+ * A minimal, monochrome, pure-black (OLED) theme. `.theme_black` is always applied together with
+ * `.theme_dark`, so only the tokens that differ from dark mode are overridden here. Declared after
+ * `.theme_dark` so these values win by source order. */
+.theme_black {
+  /* Neutral grays without the blue tint of the default palette */
+  --color-neutral-050: #f5f5f5;
+  --color-neutral-200: #d4d4d4;
+  --color-neutral-400: #8a8a8a;
+  --color-neutral-600: #4d4d4d;
+  --color-neutral-700: #2e2e2e;
+  --color-neutral-800: #1c1c1c;
+  --color-neutral-850: #121212;
+  --color-neutral-900: #0a0a0a;
+
+  /* Legacy colors (RGB format) */
+  --color-transparent-hover: rgb(255 255 255 / 0.03);
+
+  --color-background: 0 0 0;
+  --color-background-alt: 0 0 0;
+  --color-background-alt2: 10 10 10;
+  --color-background-alt3: 18 18 18;
+  --color-background-alt4: 0 0 0;
+
+  --color-primary-100: 28 28 28;
+  --color-primary-300: 77 77 77;
+  --color-primary-600: 255 255 255;
+  --color-primary-700: 212 212 212;
+
+  --color-secondary-100: 28 28 28;
+  --color-secondary-300: 46 46 46;
+  --color-secondary-500: 102 102 102;
+  --color-secondary-600: 138 138 138;
+  --color-secondary-700: 163 163 163;
+
+  --color-info-100: 18 18 18;
+  --color-info-600: 212 212 212;
+  --color-info-700: 245 245 245;
+
+  --color-text-main: 245 245 245;
+  --color-text-muted: 138 138 138;
+  --color-text-contrast: 0 0 0;
+
+  --color-hover-default: rgb(255 255 255 / 0.06);
+  --color-hover-contrast: rgb(0 0 0 / 0.15);
+
+  --color-bw-blue: 255 255 255;
+  --color-marketing-logo: 255 255 255;
+
+  --tw-ring-offset-color: #000000;
+
+  --color-illustration-outline: 138 138 138;
+  --color-illustration-bg-primary: 28 28 28;
+  --color-illustration-bg-secondary: 46 46 46;
+  --color-illustration-bg-tertiary: 10 10 10;
+  --color-illustration-tertiary: 212 212 212;
+  --color-illustration-logo: 255 255 255;
+
+  /* Neutral foreground */
+  --color-fg-contrast: var(--color-black);
+  --color-fg-contrast-strong: var(--color-neutral-600);
+  --color-fg-heading: var(--color-white);
+  --color-fg-body: var(--color-neutral-050);
+  --color-fg-body-subtle: var(--color-neutral-400);
+  --color-fg-inactive: var(--color-neutral-600);
+
+  /* Brand foreground: monochrome */
+  --color-fg-brand-soft: var(--color-neutral-400);
+  --color-fg-brand: var(--color-white);
+  --color-fg-brand-strong: var(--color-white);
+
+  /* Neutral background */
+  --color-bg-primary: var(--color-black);
+  --color-bg-secondary: var(--color-black);
+  --color-bg-tertiary: var(--color-black);
+  --color-bg-quaternary: var(--color-neutral-800);
+  --color-bg-inactive: var(--color-neutral-900);
+
+  --color-bg-gray: var(--color-neutral-600);
+  --color-bg-gray-strong: var(--color-neutral-400);
+
+  --color-bg-contrast-soft: var(--color-neutral-200);
+  --color-bg-contrast: var(--color-neutral-050);
+  --color-bg-contrast-strong: var(--color-white);
+
+  /* Brand background: monochrome */
+  --color-bg-brand-softer: var(--color-neutral-900);
+  --color-bg-brand-soft: var(--color-neutral-850);
+  --color-bg-brand-medium: var(--color-neutral-800);
+  --color-bg-brand: var(--color-white);
+  --color-bg-brand-strong: var(--color-neutral-200);
+  --color-bg-brand-stronger: var(--color-neutral-400);
+
+  /* Avatars: one neutral tone */
+  --color-bg-avatar-teal: var(--color-neutral-700);
+  --color-bg-avatar-teal-hover: var(--color-neutral-600);
+  --color-bg-avatar-coral: var(--color-neutral-700);
+  --color-bg-avatar-coral-hover: var(--color-neutral-600);
+  --color-bg-avatar-brand: var(--color-neutral-700);
+  --color-bg-avatar-brand-hover: var(--color-neutral-600);
+  --color-bg-avatar-green: var(--color-neutral-700);
+  --color-bg-avatar-green-hover: var(--color-neutral-600);
+  --color-bg-avatar-purple: var(--color-neutral-700);
+  --color-bg-avatar-purple-hover: var(--color-neutral-600);
+
+  /* Decorative */
+  --color-bg-decorative-brand: var(--color-neutral-850);
+  --color-fg-decorative-brand: var(--color-neutral-200);
+  --color-border-decorative-brand: var(--color-neutral-800);
+  --color-bg-decorative-brand-bold: var(--color-white);
+  --color-fg-decorative-brand-bold: var(--color-black);
+  --color-border-decorative-brand-bold: var(--color-white);
+  --color-bg-decorative-gray: var(--color-neutral-850);
+  --color-fg-decorative-gray: var(--color-neutral-200);
+  --color-border-decorative-gray: var(--color-neutral-800);
+  --color-bg-decorative-gray-bold: var(--color-neutral-600);
+  --color-border-decorative-gray-bold: var(--color-neutral-400);
+
+  /* Hover & overlay */
+  --color-bg-hover: rgba(var(--color-white-rgb), 0.06);
+  --color-bg-hover-contrast: rgba(var(--color-black-rgb), 0.06);
+  --color-bg-overlay: rgba(var(--color-black-rgb), 0.85);
+
+  /* Neutral border: hairlines */
+  --color-border-muted: var(--color-neutral-900);
+  --color-border-light: var(--color-neutral-850);
+  --color-border-base: var(--color-neutral-800);
+  --color-border-strong: var(--color-neutral-700);
+  --color-border-stronger: var(--color-neutral-600);
+  --color-border-buffer: var(--color-black);
+
+  /* Brand border: monochrome */
+  --color-border-brand-soft: var(--color-neutral-800);
+  --color-border-brand: var(--color-white);
+  --color-border-brand-strong: var(--color-neutral-200);
+
+  /* Side nav */
+  --color-nav-bg-brand-soft: var(--color-neutral-850);
+  --color-nav-bg-brand: var(--color-black);
+  --color-nav-bg-brand-hover: rgba(var(--color-white-rgb), 0.06);
+  --color-nav-bg-admin-soft: var(--color-neutral-850);
+  --color-nav-bg-admin: var(--color-black);
+  --color-nav-bg-admin-hover: rgba(var(--color-white-rgb), 0.06);
+  --color-nav-bg-primary: var(--color-black);
+  --color-nav-bg-secondary: var(--color-black);
+  --color-nav-bg-primary-strong: var(--color-neutral-800);
+  --color-nav-bg-secondary-strong: var(--color-neutral-800);
+  --color-nav-border-primary: var(--color-neutral-800);
+  --color-nav-border-secondary: var(--color-neutral-800);
+}
+
+/**========================================
  * DEFAULT SIDENAV PALETTE
  * ========================================
  * The Tailwind nav tokens (bg-nav, fg-nav, nav-divider, nav-focus, …) map to the new vfo1

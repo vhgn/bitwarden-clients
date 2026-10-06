@@ -111,6 +111,7 @@ export class AppearanceComponent implements OnInit {
       { name: i18nService.t("systemDefault"), value: ThemeTypes.System },
       { name: i18nService.t("light"), value: ThemeTypes.Light },
       { name: i18nService.t("dark"), value: ThemeTypes.Dark },
+      { name: i18nService.t("black"), value: ThemeTypes.Black },
     ];
   }
 
