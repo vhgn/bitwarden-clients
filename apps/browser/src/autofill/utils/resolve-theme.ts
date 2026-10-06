@@ -1,4 +1,4 @@
-import { Theme, ThemeTypes } from "@bitwarden/common/platform/enums";
+import { Theme, ThemeTypes, isDarkTheme } from "@bitwarden/common/platform/enums";
 
 export function resolveTheme(theme: Theme | string | undefined): Theme {
   if (theme === ThemeTypes.System) {
@@ -7,5 +7,5 @@ export function resolveTheme(theme: Theme | string | undefined): Theme {
       : ThemeTypes.Light;
   }
 
-  return theme === ThemeTypes.Dark ? ThemeTypes.Dark : ThemeTypes.Light;
+  return isDarkTheme(theme) ? ThemeTypes.Dark : ThemeTypes.Light;
 }

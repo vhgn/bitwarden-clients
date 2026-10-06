@@ -255,6 +255,10 @@ export class AutofillInlineMenuIframeService implements AutofillInlineMenuIframe
         ? ThemeTypes.Dark
         : ThemeTypes.Light;
     }
+    // The inline menu has no black styles, so the black theme renders it in dark mode
+    if (verifiedTheme === ThemeTypes.Black) {
+      verifiedTheme = ThemeTypes.Dark;
+    }
 
     if (verifiedTheme === ThemeTypes.Dark) {
       borderColor = "#4c525f";

@@ -11,7 +11,7 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { combineLatest, Observable } from "rxjs";
 
 import { SYSTEM_THEME_OBSERVABLE } from "@bitwarden/angular/services/injection-tokens";
-import { Theme } from "@bitwarden/common/platform/enums";
+import { Theme, isDarkTheme } from "@bitwarden/common/platform/enums";
 import { ThemeStateService } from "@bitwarden/common/platform/theming/theme-state.service";
 
 /**
@@ -53,7 +53,7 @@ export class DarkImageSourceDirective implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(([theme, systemTheme]) => {
         const appliedTheme = theme === "system" ? systemTheme : theme;
-        const isDark = appliedTheme === "dark";
+        const isDark = isDarkTheme(appliedTheme);
         this.src = isDark ? this.darkImgSrc() : this.lightImgSrc;
       });
   }

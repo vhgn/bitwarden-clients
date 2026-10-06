@@ -15,7 +15,7 @@ import { BitwardenLogo } from "@bitwarden/assets/svg";
 import { BrowserClientVendors } from "@bitwarden/common/autofill/constants";
 import { FeatureFlag } from "@bitwarden/common/enums/feature-flag.enum";
 import { ConfigService } from "@bitwarden/common/platform/abstractions/config/config.service";
-import { ThemeTypes } from "@bitwarden/common/platform/enums";
+import { isDarkTheme } from "@bitwarden/common/platform/enums";
 import {
   BaseCardComponent,
   ButtonModule,
@@ -76,7 +76,7 @@ export class DefaultPasswordManagerPromptComponent implements OnInit {
   private readonly privacyPermissionIsGranted = signal(false);
 
   private readonly isDarkTheme = toSignal(
-    this.themingService.theme$.pipe(map((theme) => theme === ThemeTypes.Dark)),
+    this.themingService.theme$.pipe(map((theme) => isDarkTheme(theme))),
     { initialValue: false },
   );
 

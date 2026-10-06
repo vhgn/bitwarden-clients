@@ -16,7 +16,7 @@ import { map } from "rxjs";
 import { AbstractThemingService } from "@bitwarden/angular/platform/services/theming/theming.service.abstraction";
 import { BitSvg } from "@bitwarden/assets/svg";
 import { I18nService } from "@bitwarden/common/platform/abstractions/i18n.service";
-import { ThemeTypes } from "@bitwarden/common/platform/enums";
+import { isDarkTheme } from "@bitwarden/common/platform/enums";
 import {
   ButtonModule,
   CardContentComponent,
@@ -74,7 +74,7 @@ export class ImportSourceSelectComponent {
   /** A handful of vendor marks are a single fixed color and need a swapped variant against a dark
    *  background — see `PickerVendorMetadata.darkIcon`. */
   private readonly isDarkTheme = toSignal(
-    this.themingService.theme$.pipe(map((theme) => theme === ThemeTypes.Dark)),
+    this.themingService.theme$.pipe(map((theme) => isDarkTheme(theme))),
     { initialValue: false },
   );
 
